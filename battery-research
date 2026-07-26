@@ -1,1 +1,238 @@
+# Battery Research Report
+## Chronis AI Wearable – Hardware Task #2 (Team C)
 
+**Author:** Aditya Kushwaha  
+**Team:** Team C – Hardware Design & Electrical Blueprint  
+**Task:** Day 1 – Battery Stack Research  
+**Date:** July 2026
+
+---
+
+# Objective
+
+The objective of this research is to identify the most suitable battery technology for the Chronis AI wearable device. The selected battery should provide sufficient runtime while maintaining a compact form factor, high safety standards, and reliable performance under varying workloads such as continuous sensing, periodic image capture, audio recording, and wireless communication.
+
+---
+
+# Battery Technologies Studied
+
+## 1. Lithium Polymer (Li-Po)
+
+### Overview
+Lithium Polymer batteries are lightweight rechargeable batteries that use a polymer electrolyte instead of a liquid electrolyte. Due to their thin profile and high energy density, they are the preferred choice for modern wearable devices.
+
+### Advantages
+- High energy density
+- Very lightweight
+- Thin and flexible form factor
+- Fast charging capability
+- High discharge current support
+- Excellent for compact wearable electronics
+
+### Disadvantages
+- Sensitive to physical damage
+- Requires protection circuitry
+- Slightly shorter cycle life than LiFePO₄
+
+### Suitability
+★★★★★ (Highly Recommended)
+
+---
+
+## 2. Lithium-Ion (Li-Ion)
+
+### Overview
+
+Lithium-Ion batteries are commonly used in smartphones, laptops, and portable electronics. They provide high capacity but are generally cylindrical or rigid in shape.
+
+### Advantages
+
+- High capacity
+- Good energy density
+- Long operating time
+- Mature technology
+
+### Disadvantages
+
+- Rigid form factor
+- Less suitable for compact wearables
+- Requires protection circuit
+
+### Suitability
+
+★★★★☆
+
+---
+
+## 3. Lithium Iron Phosphate (LiFePO₄)
+
+### Overview
+
+LiFePO₄ batteries are well known for their excellent safety and extremely long cycle life.
+
+### Advantages
+
+- Excellent thermal stability
+- Very safe chemistry
+- Long cycle life (2000–5000 cycles)
+- Stable voltage output
+
+### Disadvantages
+
+- Lower energy density
+- Larger and heavier
+- Not ideal for thin wearable devices
+
+### Suitability
+
+★★★☆☆
+
+---
+
+# Battery Chemistry Comparison
+
+| Parameter | Li-Po | Li-Ion | LiFePO₄ |
+|-----------|--------|---------|----------|
+| Energy Density | High | High | Medium |
+| Safety | Good | Good | Excellent |
+| Cycle Life | 500–1000 cycles | 500–1000 cycles | 2000–5000 cycles |
+| Weight | Very Light | Light | Heavy |
+| Thickness | Very Thin | Thick | Thick |
+| Wearable Suitability | Excellent | Good | Moderate |
+| Fast Charging | Yes | Yes | Moderate |
+| Overall Recommendation | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐☆ | ⭐⭐⭐☆☆ |
+
+---
+
+# Estimated Power Consumption
+
+Since the physical hardware is not yet available, the power requirement has been estimated using datasheet values of the selected components.
+
+| Component | Estimated Current |
+|-----------|------------------|
+| Radxa Zero 3W | 450–700 mA |
+| Camera Module | 180–250 mA |
+| Motion Sensor | 1–5 mA |
+| Heart Rate Sensor | 5–15 mA |
+| RTC Module | <1 mA |
+| Security Chip | <5 mA |
+| Wi-Fi/Bluetooth | 100–300 mA |
+
+Estimated Average Current Consumption:
+**650–800 mA**
+
+Estimated Peak Current:
+**1.2–1.5 A**
+
+---
+
+# Battery Capacity Estimation
+
+Target Runtime:
+**8–10 Hours**
+
+Battery Capacity Formula:
+
+Battery Capacity (mAh) = Average Current × Operating Time
+
+Example:
+
+750 mA × 8 Hours = **6000 mAh**
+
+Considering power-saving modes and intermittent sensor operation, a practical battery size between **3000 mAh and 4000 mAh** is considered an appropriate starting point for prototype testing.
+
+---
+
+# Candidate Battery Shortlist
+
+## Option 1
+
+### 3.7V 3000mAh Li-Po Battery
+
+Reason:
+- Compact
+- Lightweight
+- Suitable for prototype
+- Good runtime
+
+Recommendation:
+★★★★★
+
+---
+
+## Option 2
+
+### 3.7V 4000mAh Li-Po Battery
+
+Reason:
+- Longer battery life
+- Supports continuous sensing
+- Better for extended usage
+
+Recommendation:
+★★★★★
+
+---
+
+## Option 3
+
+### 18650 Li-Ion Cell (3400mAh)
+
+Reason:
+- High capacity
+- Easily available
+- Reliable
+
+Limitation:
+- Bulky for wearable applications
+
+Recommendation:
+★★★★☆
+
+---
+
+# Battery Protection Requirements
+
+The battery management system should include:
+
+- Overcharge Protection
+- Over-discharge Protection
+- Over-current Protection
+- Short Circuit Protection
+- Reverse Polarity Protection
+- Thermal Protection
+- Safe Charging Control
+
+Recommended Protection IC:
+
+- DW01A
+- FS8205A Dual MOSFET
+
+Recommended Charging Module:
+
+- TP4056 USB-C Charging Module
+
+---
+
+# Final Recommendation
+
+Based on the initial research, the **3.7V Lithium Polymer (Li-Po) battery with a capacity between 3000 mAh and 4000 mAh** is the most suitable option for the Chronis AI wearable. It provides the best balance between energy density, compact size, lightweight construction, and discharge capability, making it ideal for wearable electronics with bursty workloads such as AI processing, camera operation, and wireless communication.
+
+The battery selection will be validated further once actual hardware power measurements become available.
+
+---
+
+# References
+
+1. Radxa Zero 3W Documentation
+2. Bosch BMI270 Datasheet
+3. MAX30102 Datasheet
+4. Microchip ATECC608A Datasheet
+5. Sony IMX219 Camera Documentation
+6. TP4056 Charging Module Datasheet
+7. DW01A Battery Protection IC Datasheet
+
+---
+
+**Status:** ✅ Day 1 Research Completed  
+**Next Task:** Component Compatibility Verification
